@@ -1,0 +1,42 @@
+import { FastifyInstance } from 'fastify';
+import mediasRoutes from './medias.js';
+import playlistsRoutes from './playlists.js';
+import presentationRoutes from './presentation.js';
+import songsRoutes from './songs.js';
+import systemRoutes from './system.js';
+import textsRoutes from './texts.js';
+import announcementsRoutes from './announcements.js';
+import quickPresentationRoutes from './quick-presentation.js';
+import quizRoutes from './quiz.js';
+import automaticPresentationsRoutes from './automatic-presentations.js';
+import mediaPlayerRoutes from './media-player.js';
+import backgroundsRoutes from './backgrounds.js';
+import schedulesRoutes from './schedules.js';
+import teamsRoutes from './teams.js';
+import communicationPanelRoutes from './communication-panel.js';
+import bibleRoutes from './bible.js';
+import settingsRoutes from './settings.js';
+import actionsRoutes from './actions.js';
+import crudRoutes from './crud.js';
+
+export default async function routes(fastify: FastifyInstance) {
+  fastify.register(mediasRoutes, { prefix: '/medias' });
+  fastify.register(playlistsRoutes, { prefix: '/playlists' });
+  fastify.register(presentationRoutes, { prefix: '/presentation' });
+  fastify.register(songsRoutes, { prefix: '/songs' });
+  fastify.register(systemRoutes, { prefix: '/system' });
+  fastify.register(textsRoutes, { prefix: '/texts' });
+  fastify.register(announcementsRoutes, { prefix: '/announcements' });
+  fastify.register(quickPresentationRoutes, { prefix: '/quick-presentation' });
+  fastify.register(quizRoutes, { prefix: '/quiz' });
+  fastify.register(automaticPresentationsRoutes, { prefix: '/automatic-presentations' });
+  fastify.register(mediaPlayerRoutes, { prefix: '/media-player' });
+  fastify.register(backgroundsRoutes, { prefix: '/backgrounds' });
+  fastify.register(schedulesRoutes, { prefix: '/schedules' });
+  fastify.register(teamsRoutes, { prefix: '/teams' });
+  fastify.register(communicationPanelRoutes, { prefix: '/communication-panel' });
+  fastify.register(bibleRoutes, { prefix: '/bible' });
+  fastify.register(settingsRoutes, { prefix: '/settings' });
+  fastify.register(actionsRoutes, { prefix: '/actions' });
+  fastify.register(crudRoutes, { prefix: '/crud' });
+}
