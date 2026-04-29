@@ -152,6 +152,11 @@ const start = async () => {
     await fastify.register(authRoutes, { prefix: '/api/v1/auth' });
     await fastify.register(routes, { prefix: '/api/v1' });
 
+    // Expose OpenAPI JSON
+    app.get('/openapi.json', { schema: { hide: true } }, async () => {
+      return app.swagger();
+    });
+
     const port = parseInt(app.config.PORT, 10);
     const host = app.config.HOST;
 
