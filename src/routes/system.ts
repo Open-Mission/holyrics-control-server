@@ -233,4 +233,19 @@ export default async function systemRoutes(fastify: FastifyInstance) {
     if (nextAuth) reply.setHolyricsCookies(nextAuth);
     return data;
   });
+
+  app.get('/connection-status', {
+    schema: {
+      tags: ['System'],
+      description: 'Get connection status to Holyrics',
+      response: {
+        200: z.object({
+          holyrics: z.enum(['connected', 'disconnected']),
+        })
+      }
+    }
+  }, async () => {
+    const isConnected = await holyrics.system.ping();
+    return { holyrics: isConnected ? 'connected' : 'disconnected' };
+  });
 }

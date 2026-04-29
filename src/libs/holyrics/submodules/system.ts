@@ -74,4 +74,8 @@ export class SystemModule {
   async getStyledModelsAsMap(auth?: any) {
     return this.client.request('GetStyledModelsAsMap', {}, auth);
   }
+
+  async ping() {
+    return this.client.ping();
+  }
 }

@@ -113,4 +113,17 @@ export class HolyricsBaseClient {
       throw error;
     }
   }
+
+  async ping(): Promise<boolean> {
+    try {
+      const response = await fetch(`${this.baseUrl}/api/Auth`, {
+        method: 'GET',
+        // Set a short timeout for the ping
+        signal: AbortSignal.timeout(3000)
+      });
+      return response.ok;
+    } catch (error) {
+      return false;
+    }
+  }
 }
